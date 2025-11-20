@@ -1,0 +1,19 @@
+{% extends 'ex01/base.html' %}
+
+
+{% block head %}
+	Render static web page
+{% endblock head %}
+
+
+{% block title %}
+	<h1>Render static web page</h1>
+{% endblock title %}
+
+{% block content %}
+	<p>Writting a simple template file in html, js, CSS, ... allows you to create a new static web page ready to be rendered.</p>
+	<p>To do so, django needs a HttpResponse object (or an exception).</p>
+	<p>Those are returned from functions presents in app/views.py.</p>
+	<p>Files in templates folder can be instanciated as a Python object with the function <b>get_template()</b> from the <b>template</b> library in django.</p>
+	<p>Then the <b>render()</b> method from this object return the template's content that can be given to the HttpResponse you need to return.</p>
+{% endblock content %}

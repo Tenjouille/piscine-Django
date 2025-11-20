@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		{% block style %}
+			<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}"/>
+		{% endblock style %}
+		<title>{% block head %}{% endblock head %}</title>
+	</head>
+	<body>
+		{% include "ex01/nav.html" %}
+		{% block title %}
+			<h1>No Head</h1>
+		{% endblock title %}
+		{% block content %}
+			<p>Content</p>
+		{% endblock content %}
+	</body>
+</html>

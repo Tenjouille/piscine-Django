@@ -1,0 +1,62 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}"/>
+{% endblock style %}
+
+{% block title %}
+	<title>Django Engine</title>
+{% endblock title %}
+
+{% block content %}
+{% verbatim %}
+	<h1>The Django template language</h1>
+	<p>This is one of the most important facilities provided by Django Templates. A Django template is a text document or a Python string marked-up using the Django template language. Some constructs are recognized and interpreted by the template engine. The main ones are variables and tags. As we used for the loop in the above example, we used it as a tag. similarly, we can use various other conditions such as if, else, if-else, empty, etc. The main characteristics of Django Template language are Variables, Tags, Filters, and Comments.</p><br>
+	<h2>Jinja Variables</h2>
+	<p>Variables output a value from the context, which is a dict-like object mapping keys to values. The context object we sent from the view can be accessed in the template using variables of Django Template.</p>
+	<h2>Jinja Tags</h2>
+	<p>Tags provide arbitrary logic in the rendering process. For example, a tag can output content, serve as a control structure e.g. an “if” statement or a “for” loop, grab content from a database, or even enable access to other template tags.</p>
+	<i>Exemple : context = {"name": "Jeffrey"} (views.py) | &lt;div&gtHello, my name is {{ name }}&lt;/div&gt</i><br>
+	<ul>
+		<li>
+			<h3>for loop</h3>
+			<p>Django templates allow you to render dynamic data by embedding Python-like logic into HTML. The for loop is one of the most commonly used template tags, enabling you to iterate over lists or other iterable objects. It helps you display repeated content (like lists, tables, etc.) in your templates without needing to write complex logic in the view.</p>
+			<p><i>
+				Exemple : To display a list of athletes provided in a jinja variable athlete_list:
+				<pre>
+&lt;ul&gt 
+{% for athlete in athlete_list %} 
+	&lt;li&gt{{ athlete.name }}&lt;/li&gt 
+{% endfor %} 
+&lt;/ul&gt
+				</pre>
+			</i></p>
+		</li>
+		<li>
+			<h3>if</h3>
+			<p>The {% if %} tag in Django templates allows us to control what content is displayed based on certain conditions. We can use it to show or hide parts of a page depending on whether a condition is met.</p>
+			<p><i>Exemple:
+				<pre>
+{% if athlete_list %}
+    Number of athletes: {{ athlete_list|length }}
+{% elif athlete_in_locker_room_list %}
+    Athletes should be out of the locker room soon!
+{% else %}
+    No athletes.
+{% endif %}						
+				</pre>
+			</i></p>
+		</li>
+	</ul>
+	<h2>Jinja blocks</h2>
+	<p>The <b>block</b> tag has two functions:</p>
+	<ol>
+		<li>It is a placeholder for content.</li>
+		<li>It is content that will replace the placeholder.</li>
+	</ol>
+	<p>In <i>master</i> templates the <b>block</b> tag is a placeholder that will be replaced by a block in a child template with the same name.</p>
+	<p>In <i>child</i> templates the <b>block</b> tag is content that will replace the placeholder in the master template with the same name.</p>
+	<p>In <i>child</i> templates, you need to call <i>{% extends "parent_template.html" %}</i> to include the parent template</p>
+{% endverbatim %}
+{% endblock content %}

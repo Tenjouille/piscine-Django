@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>First Form</title>
+	</head>
+	<body>
+		<h1>FORM</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" value="Submit">
+		</form>
+		<h1>HISTORY</h1>
+		<ul>
+			{% for historic in history %}
+				{% if historic %}
+					<li>{{ historic }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</body>
+</html>
