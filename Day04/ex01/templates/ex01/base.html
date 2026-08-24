@@ -6,13 +6,13 @@
 		{% block style %}
 			<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}"/>
 		{% endblock style %}
-		<title>{% block head %}{% endblock head %}</title>
+		<title>{% block title %}{% endblock title %}</title>
 	</head>
 	<body>
 		{% include "ex01/nav.html" %}
-		{% block title %}
+		{% block head %}
 			<h1>No Head</h1>
-		{% endblock title %}
+		{% endblock head %}
 		{% block content %}
 			<p>Content</p>
 		{% endblock content %}

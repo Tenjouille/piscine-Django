@@ -14,8 +14,8 @@
 		<h1>HISTORY</h1>
 		<ul>
 			{% for historic in history %}
-				{% if historic %}
-					<li>{{ historic }}</li>
+				{% if historic.value %}
+					<li>{{ historic.date }} -- {{ historic.value }}</li>
 				{% endif %}
 			{% endfor %}
 		</ul>

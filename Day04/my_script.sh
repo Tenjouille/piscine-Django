@@ -1,10 +1,10 @@
 #!/bin/bash
 
-VENV="django_venv"
+VENV="$HOME/.venvs/$(basename "$(pwd)")_venv"
 PyPath="/usr/bin/python3"
 
 $PyPath -m venv $VENV
 
 source $VENV/bin/activate
 
-pip install --force-reinstall -r requirement.txt
+pip install --force-reinstall -r requirements.txt
